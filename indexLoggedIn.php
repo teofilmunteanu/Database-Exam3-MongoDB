@@ -202,7 +202,7 @@ $cafesResult = $client->executeQuery("examendb3.cafes", $query2);
                                 <div class="row">
                                     <div class="col">
                                       <h2 class="title">
-                                        <a href="cafe_details.php?name=<?php echo $cafeDoc->email;?>&email=<?php echo $cafeDoc->emailAssigned; ?>" onclick="saveAudioTime()"><?php echo $cafeDoc->name; ?></a>
+                                        <a href="cafe_details.php?name=<?php echo $cafeDoc->name;?>&email=<?php echo $cafeDoc->emailAssigned; ?>" onclick="saveAudioTime()"><?php echo $cafeDoc->name; ?></a>
                                       </h2>
                                     </div>
                                     
