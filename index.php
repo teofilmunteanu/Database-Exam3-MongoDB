@@ -26,7 +26,7 @@
         }else if(isset($_COOKIE['email']) && isset($_COOKIE['token'])){
             if(SecurityHandler::checkUserToken($_COOKIE['email'], $_COOKIE['token'])){
                 $_SESSION['email'] = $_COOKIE['email'];
-                PageHandler::getLoggedInPage($_COOKIE['email']);
+                PageHandler::getLoggedInPage();
             }  
         }
         else{

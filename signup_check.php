@@ -22,8 +22,7 @@ if(($_POST['email'] != "") && ($_POST['password'] != "")
         && ($_POST['cpassword'] != "") && ($_POST['lastName'] != "")
         && ($_POST['firstName'] != "")){
     $email = $_POST['email'];
-//    $queryEmail = "SELECT * FROM $table WHERE email='$email'";
-//    $resultEmail=mysqli_query($con, $queryEmail);
+
     $filter=['email' => $email];
     $query = new MongoDB\Driver\Query($filter);
     $article = $client->executeQuery($dbtable, $query);
@@ -36,9 +35,6 @@ if(($_POST['email'] != "") && ($_POST['password'] != "")
                 $user = new User();
                 $user->setData($_POST['email'], md5($_POST['password']), $_POST['lastName'], $_POST['firstName']);
 
-//                $values  = implode("', '", $user->getData());
-//                $query= "INSERT INTO $table (email, password, lastName, firstName, userType) VALUES ('$values')";
-//                $result=mysqli_query($con, $query);
                 $bulk = new MongoDB\Driver\BulkWrite;
                 $data=array(
                     '_id' => new MongoDB\BSON\ObjectID,

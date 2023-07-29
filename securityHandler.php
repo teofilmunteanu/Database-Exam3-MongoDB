@@ -18,10 +18,7 @@
             setcookie('email', $email, time()+$expirationAdder);
             setcookie('token', $token, time()+$expirationAdder);
 
-//            $query="INSERT INTO $table(email, token, expirationDate) VALUES ('{$email}',"
-//                . "'{$token}', NOW()+00010000000000)";
-//
-//            $result= mysqli_query($GLOBALS['con'], $query)or die(mysqli_error($con));
+
             $bulk = new MongoDB\Driver\BulkWrite;
             
             $expDate = (new DateTime())->add(new DateInterval('P1Y'));
@@ -50,13 +47,7 @@
                 return true;
             }
             return false;
-//            $query = "SELECT * FROM $table WHERE email='$email' AND token='$token' AND expirationDate > NOW() LIMIT 1";
-//            $result=mysqli_query($GLOBALS['con'], $query);
-//
-//            if(mysqli_num_rows($result) == 1){
-//                return true;
-//            }
-//            return false;
+
         }
     }
     
